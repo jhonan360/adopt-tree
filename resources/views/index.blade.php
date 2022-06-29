@@ -282,7 +282,7 @@
                                     <div id="slider_1" class="master-slider ms-skin-default">
 
                                         <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="upload/slider-1.jpg" />
+                                            <img src='{{asset("plugins/masterslider/public/assets/css/blank.gif")}}' alt="" title="" data-src='{{asset("upload/slider-1.jpg")}}' />
 
                                             <a href="#" target="_self" class="ms-layer ms-btn ms-btn-round ms-btn-n msp-preset-btn-159" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="400" data-delay="987" data-ease="easeOutQuint" data-type="button" data-offset-x="1" data-offset-y="208" data-origin="ml" data-position="normal">Learn More</a>
 
@@ -297,7 +297,7 @@
 
                                         </div>
                                         <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="upload/slider-2.jpg" />
+                                            <img src='{{asset("plugins/masterslider/public/assets/css/blank.gif")}}' alt="" title="" data-src='{{asset("upload/slider-2.jpg")}}' />
 
                                             <a href="#" target="_self" class="ms-layer ms-btn ms-btn-round ms-btn-n msp-preset-btn-159" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="400" data-delay="987" data-ease="easeOutQuint" data-type="button" data-offset-x="1" data-offset-y="227" data-origin="ml" data-position="normal">Learn More</a>
 
@@ -312,7 +312,7 @@
 
                                         </div>
                                         <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="upload/slider-3.jpg" />
+                                            <img src='{{asset("plugins/masterslider/public/assets/css/blank.gif")}}' alt="" title="" data-src='{{asset("upload/slider-3.jpg")}}' />
 
                                             <div class="ms-layer  msp-cn-1-10" style="" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-delay="425" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="82" data-origin="mc" data-position="normal">
                                                 The Better Place</div>
