@@ -49,10 +49,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //  'tipo_documento', 'cedula', 'nombre', 'apellido', 'email', 'password', 'telefono',
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'tipo_documento' => ['required', 'string'],
+            'cedula' => ['required', 'integer', 'unique:users'],
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'telefono' => ['required', 'string', 'size:10', 'unique:users'],
         ]);
     }
 
@@ -64,10 +69,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = User::create([
+            'tipo_documento' => $data['tipo_documento'],
+            'cedula' => $data['cedula'],
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'telefono' => $data['telefono'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $user->assignRole('cliente');
+        return $user;
     }
 }

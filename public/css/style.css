@@ -933,8 +933,8 @@ body .ls-v5 .ls-nav-next { right: 20px; }
 /* -- Master slider style modification --*/
 body .ms-skin-default .ms-nav-prev,
 body .ms-skin-default .ms-nav-next{ width: 27px; height: 46px; margin-top: -13px; }
-body .ms-skin-default .ms-nav-prev{ background: url("{{asset('images/master-slider-left.png')}}"); }
-body .ms-skin-default .ms-nav-next{ background: url("{{asset('images/master-slider-right.png')}}"); }
+body .ms-skin-default .ms-nav-prev{ background: url('../images/master-slider-left.png'); }
+body .ms-skin-default .ms-nav-next{ background: url('../images/master-slider-right.png'); }
 body .ms-skin-default .ms-bullet { background-image: none; ;
 	border-width: 2px; border-style: solid; border-color: #ffffff;
 	-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; 
