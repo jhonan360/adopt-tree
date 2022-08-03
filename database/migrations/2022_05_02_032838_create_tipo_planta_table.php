@@ -17,6 +17,7 @@ class CreateTipoPlantaTable extends Migration
             $table->integer('idtipo_planta', true);
             $table->string('nombre', 45);
             $table->text('detalle')->nullable();
+            $table->timestamps();
         });
     }
 

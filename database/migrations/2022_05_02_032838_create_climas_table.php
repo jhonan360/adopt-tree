@@ -17,6 +17,7 @@ class CreateClimasTable extends Migration
             $table->integer('idclimas', true);
             $table->string('nombre', 45);
             $table->text('detalle')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/home') }}">
+                <a class="nav-link" href="{{ route('home') }}">
                     <span>Home</span>
                 </a>
             </li>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="editar_agenda.php">
+                    <a class="nav-link" href="{{route('climas')}}">
                         <span>Climas</span>
                     </a>
                 </li>
@@ -92,12 +92,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="realizar_compra.php">
+                    <a class="nav-link" href="{{route('medidas')}}">
                         <span>Medidas</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="realizar_compra.php">
+                    <a class="nav-link" href="{{route('quimicos')}}">
                         <span>Quimicos</span>
                     </a>
                 </li>
@@ -114,7 +114,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="clientes.php">
+                    <a class="nav-link" href="{{route('usuarios')}}">
                         <span>Ver Usuarios</span>
                     </a>
                 </li>
@@ -291,6 +291,12 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}"></script>
+
+    @yield('script')
+
+    <script type='text/javascript'>
+        @yield('inScript')
+    </script>
 </body>
 
 </html>

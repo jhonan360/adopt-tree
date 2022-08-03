@@ -29,7 +29,7 @@ class TipoPlanta extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'detalle'];
+    protected $fillable = ['nombre', 'detalle', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
