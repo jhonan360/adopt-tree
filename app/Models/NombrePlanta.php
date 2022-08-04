@@ -47,9 +47,9 @@ class NombrePlanta extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function tipoPlantum()
+    public function tipoPlanta()
     {
-        return $this->belongsTo('App\Models\TipoPlantum', 'idtipo_planta', 'idtipo_planta');
+        return $this->belongsTo('App\Models\TipoPlanta', 'idtipo_planta', 'idtipo_planta');
     }
 
     /**

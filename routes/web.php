@@ -45,6 +45,10 @@ Route::get('dashboard/climas', [App\Http\Controllers\PlantasController::class, '
 Route::get('dashboard/climas/{id}', [App\Http\Controllers\PlantasController::class, 'climas'])->name('climasShow');
 Route::post('dashboard/climas/createUpdate', [App\Http\Controllers\PlantasController::class, 'climasCreateUpdate'])->name('climasCreateUpdate');
 
+// plantaPedia
+Route::get('dashboard/plantaPedia', [App\Http\Controllers\PlantasController::class, 'plantaPedia'])->name('plantaPedia');
+Route::get('dashboard/plantaPedia/{id}', [App\Http\Controllers\PlantasController::class, 'plantaPedia'])->name('plantaPediaShow');
+Route::post('dashboard/plantaPedia/createUpdate', [App\Http\Controllers\PlantasController::class, 'plantaPediaCreateUpdate'])->name('plantaPediaCreateUpdate');
 
 // quimicos
 Route::get('dashboard/quimicos', [App\Http\Controllers\BitacoraController::class, 'quimicos'])->name('quimicos');
@@ -56,8 +60,7 @@ Route::get('dashboard/medidas', [App\Http\Controllers\BitacoraController::class,
 Route::get('dashboard/medidas/{id}', [App\Http\Controllers\BitacoraController::class, 'medidas'])->name('medidasShow');
 Route::post('dashboard/medidas/createUpdate', [App\Http\Controllers\BitacoraController::class, 'medidasCreateUpdate'])->name('medidasCreateUpdate');
 
-
 // usuarios
 Route::get('dashboard/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios'])->name('usuarios');
 Route::get('dashboard/usuarios/create', [App\Http\Controllers\AdminController::class, 'usuariosCreate'])->name('usuariosCreate');
-Route::post('dashboard/medidas/save', [App\Http\Controllers\BitacoraController::class, 'usuariosSave'])->name('usuariosSave');
+Route::post('dashboard/medidas/save', [App\Http\Controllers\AdminController::class, 'usuariosSave'])->name('usuariosSave');

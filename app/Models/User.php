@@ -107,4 +107,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\TipoUsuario', 'idtipo_usuario', 'idtipo_usuario');
     }
+
+    
+    public function getRole()
+    {
+        return $this->getRoleNames()[0];
+    }
+
 }

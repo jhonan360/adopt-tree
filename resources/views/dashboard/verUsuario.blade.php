@@ -84,15 +84,15 @@
                         <td>{{ $usu->apellido }}</td>
                         <td>{{ $usu->email }}</td>
                         <td>{{ $usu->telefono }}</td>
-                        <td>{{ $usu->email }}</td>
-                        <td>
+                        <td>{{ $usu->getRole() }}</td>
+                        {{-- <td>
                             <a href="/dashboard/medidas/{{ $usu->idmedidas }}"  class="btn btn-warning btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-edit"></i>
                                 </span>
                                 <span class="text">Editar</span>    
                             </a>
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>

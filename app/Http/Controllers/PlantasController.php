@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoPlanta;
 use App\Models\Clima;
+use App\Models\TipoPlanta;
+use App\Models\NombrePlanta;
 
 use Illuminate\Http\Request;
 
@@ -71,5 +72,56 @@ class PlantasController extends Controller
         $clima->save();
 
         return redirect('/dashboard/climas');
+    }
+
+    // muestra la vista de plantaPedia
+    public function plantaPedia(Request $request, $id = null){
+        $climas = Clima::All();
+        $tiposPlantas = TipoPlanta::All();
+        $plantaPedias = NombrePlanta::All();
+        $plantaPedia = NombrePlanta::find($id);
+
+        return view('dashboard.plantaPedia', [
+            'tiposPlantas' => $tiposPlantas,
+            'climas' => $climas,
+            'plantaPedias' => $plantaPedias,
+            'plantaPedia' => $plantaPedia,
+        ]);
+    }
+
+    // crea o actualiza plantaPedia
+    public function plantaPediaCreateUpdate(Request $request){
+        
+        $id = $request->all()['idnombre'] ?? null;
+        
+        if($id == '' || $id == null){
+            $plantaPedia = new NombrePlanta();
+            $validData = $request->validate([
+                'idnombre' => 'nullable',
+                'idclimas' => 'required',
+                'idtipo_planta' => 'required',
+                'nombre_cientifico' => 'required|min:5|unique:nombres_plantas',
+                'nombre_comun' => 'required|min:5|unique:nombres_plantas',
+                'detalle' => 'string|nullable',
+            ]);
+        }else{
+            $validData = $request->validate([
+                'idnombre' => 'nullable',
+                'idclimas' => 'required',
+                'idtipo_planta' => 'required',
+                'nombre_cientifico' => 'required|min:5',
+                'nombre_comun' => 'required|min:5',
+                'detalle' => 'string|nullable',
+            ]);
+            $plantaPedia = NombrePlanta::findOrFail($id);
+        }
+        $plantaPedia->nombre_cientifico = $validData['nombre_cientifico'];
+        $plantaPedia->nombre_comun = $validData['nombre_comun'];
+        $plantaPedia->idtipo_planta = $validData['idtipo_planta'];
+        $plantaPedia->idclimas = $validData['idclimas'];
+        $plantaPedia->detalle = $validData['detalle'] ?? null;
+        $plantaPedia->save();
+
+        return redirect('/dashboard/plantaPedia');
     }
 }

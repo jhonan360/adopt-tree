@@ -17,6 +17,7 @@ class CreateTipoUsuarioTable extends Migration
             $table->integer('idtipo_usuario', true);
             $table->string('nombre', 45);
             $table->text('detalle')->nullable()->comment('Administrador, Colaborador, Cliente');
+            $table->timestamps();
         });
     }
 

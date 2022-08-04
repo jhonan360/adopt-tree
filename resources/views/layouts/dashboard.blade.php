@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="editar_agenda.php">
+                    <a class="nav-link" href="{{route('plantaPedia')}}">
                         <span>Planta Pedia</span>
                     </a>
                 </li>
@@ -124,7 +124,7 @@
                         <span>Crear Usuarios</span></a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="empleados.php">
+                    <a class="nav-link" href="{{route('usuariosCreate')}}">
                         <span>Crear Usuarios</span>
                     </a>
                 </li>

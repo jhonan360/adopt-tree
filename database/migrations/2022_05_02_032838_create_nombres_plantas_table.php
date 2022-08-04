@@ -20,6 +20,7 @@ class CreateNombresPlantasTable extends Migration
             $table->string('nombre_cientifico', 45);
             $table->string('nombre_comun', 45);
             $table->text('detalle')->nullable();
+            $table->timestamps();
         });
     }
 
