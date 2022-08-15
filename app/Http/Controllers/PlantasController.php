@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clima;
+use App\Models\Planta;
 use App\Models\TipoPlanta;
 use App\Models\NombrePlanta;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PlantasController extends Controller
@@ -123,5 +125,43 @@ class PlantasController extends Controller
         $plantaPedia->save();
 
         return redirect('/dashboard/plantaPedia');
+    }
+
+    // muestra la vista de plantas para crear
+    public function plantas(Request $request, $id = null){
+        $planta = Planta::find($id);
+        $plantas = Planta::all();
+        $plantaPedia = NombrePlanta::All();
+
+        return view('dashboard.plantas', [
+            'planta' => $planta,
+            'plantas' => $plantas,
+            'plantaPedia' => $plantaPedia
+        ]);
+    }
+
+     // crea o actualiza planta
+    public function plantasCreateUpdate(Request $request){
+        
+        $id = $request->all()['idplantas'] ?? null;
+        
+        $validData = $request->validate([
+            'idnombre' => 'required',
+            'latitud' => 'required',
+            'longitud' => 'required',
+        ]);
+        //dd($id,$validData);
+        if($id == '' || $id == null){
+            $planta = new Planta();
+            $planta->fecha_ingreso = Carbon::now();;
+        }else{
+            $planta = Planta::findOrFail($id);
+        }
+        $planta->idnombre = $validData['idnombre'];
+        $planta->latitud = $validData['latitud'];
+        $planta->longitud = $validData['longitud'];
+        $planta->save();
+
+        return redirect('/dashboard/plantas');
     }
 }

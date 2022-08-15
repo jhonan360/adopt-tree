@@ -49,11 +49,11 @@
                             @foreach($tiposPlantas as $key => $tps)
                                 <option value="{{ $tps->idtipo_planta }}" @if(old('idtipo_planta') == "{{ $tps->idtipo_planta }}" OR (Route::currentRouteName() == 'plantaPediaShow' AND "{{ $tps->idtipo_planta}}" == "{{$plantaPedia->idtipo_planta }}")) selected @endif>{{ $tps->nombre }}</option>
                             @endforeach
-                    </select>
-                    @error('idtipo_planta')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                        </select>
+                        @error('idtipo_planta')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                 </div>

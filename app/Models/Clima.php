@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $idclimas
  * @property string $nombre
  * @property string $detalle
- * @property NombresPlanta[] $nombresPlantas
+ * @property NombrePlanta[] $nombrePlantas
  */
 class Clima extends Model
 {
@@ -27,8 +27,8 @@ class Clima extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function nombresPlantas()
+    public function nombrePlantas()
     {
-        return $this->hasMany('App\Models\NombresPlanta', 'idclimas', 'idclimas');
+        return $this->hasMany('App\Models\NombrePlanta', 'idclimas', 'idclimas');
     }
 }

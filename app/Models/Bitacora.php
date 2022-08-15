@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Planta $planta
  * @property User $user
- * @property QuimicosHasBitacora[] $quimicosHasBitacoras
+ * @property QuimicoHasBitacora[] $quimicosHasBitacoras
  */
 class Bitacora extends Model
 {
@@ -58,6 +58,6 @@ class Bitacora extends Model
      */
     public function quimicosHasBitacoras()
     {
-        return $this->hasMany('App\Models\QuimicosHasBitacora', 'idbitacora', 'idbitacora');
+        return $this->hasMany('App\Models\QuimicoHasBitacora', 'idbitacora', 'idbitacora');
     }
 }

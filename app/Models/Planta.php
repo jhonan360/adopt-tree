@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Bitacora[] $bitacoras
  * @property DetalleFacturacion[] $detalleFacturacions
  * @property Multimedia[] $multimedia
- * @property NombresPlanta $nombresPlanta
+ * @property NombrePlanta $nombrePlanta
  * @property User $user
  */
 class Planta extends Model
@@ -32,12 +32,6 @@ class Planta extends Model
      */
     protected $primaryKey = 'idplantas';
 
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
 
     /**
      * @var array
@@ -71,9 +65,9 @@ class Planta extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function nombresPlanta()
+    public function nombrePlanta()
     {
-        return $this->belongsTo('App\Models\NombresPlanta', 'idnombre', 'idnombre');
+        return $this->belongsTo('App\Models\NombrePlanta', 'idnombre', 'idnombre');
     }
 
     /**

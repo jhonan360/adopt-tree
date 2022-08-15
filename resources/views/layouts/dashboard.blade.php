@@ -13,7 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-   
+    
+    <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.min.css')}}">
+
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
@@ -57,7 +59,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="crear_agenda.php">        
+                    <a class="nav-link" href="{{route('plantas')}}">        
                         <span>Plantas</span>
                     </a>
                 </li>
@@ -87,8 +89,13 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="realizar_venta.php">
+                    <a class="nav-link" href="{{route('verBitacora')}}">
                         <span>Ver Bitacora</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('hacerBitacora')}}">
+                        <span>Hacer Bitacora</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -281,8 +288,12 @@
         </div>
     </div>
 
+    @yield('script')
+    
+    
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.timepicker.min.js')}} "></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -292,7 +303,6 @@
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}"></script>
 
-    @yield('script')
 
     <script type='text/javascript'>
         @yield('inScript')

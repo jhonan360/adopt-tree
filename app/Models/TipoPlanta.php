@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $idtipo_planta
  * @property string $nombre
  * @property string $detalle
- * @property NombresPlanta[] $nombresPlantas
+ * @property NombrePlanta[] $nombrePlantas
  */
 class TipoPlanta extends Model
 {
@@ -34,8 +34,8 @@ class TipoPlanta extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function nombresPlantas()
+    public function nombrePlantas()
     {
-        return $this->hasMany('App\Models\NombresPlanta', 'idtipo_planta', 'idtipo_planta');
+        return $this->hasMany('App\Models\NombrePlanta', 'idtipo_planta', 'idtipo_planta');
     }
 }

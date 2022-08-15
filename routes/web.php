@@ -50,6 +50,21 @@ Route::get('dashboard/plantaPedia', [App\Http\Controllers\PlantasController::cla
 Route::get('dashboard/plantaPedia/{id}', [App\Http\Controllers\PlantasController::class, 'plantaPedia'])->name('plantaPediaShow');
 Route::post('dashboard/plantaPedia/createUpdate', [App\Http\Controllers\PlantasController::class, 'plantaPediaCreateUpdate'])->name('plantaPediaCreateUpdate');
 
+// plantas
+Route::get('dashboard/plantas', [App\Http\Controllers\PlantasController::class, 'plantas'])->name('plantas');
+Route::get('dashboard/plantas/{id}', [App\Http\Controllers\PlantasController::class, 'plantas'])->name('plantasShow');
+Route::post('dashboard/plantas/createUpdate', [App\Http\Controllers\PlantasController::class, 'plantasCreateUpdate'])->name('plantaCreateUpdate');
+
+// bitacora
+Route::get('dashboard/hacerBitacora', [App\Http\Controllers\BitacoraController::class, 'hacerBitacora'])->name('hacerBitacora');
+Route::get('dashboard/hacerBitacora/{id}', [App\Http\Controllers\BitacoraController::class, 'hacerBitacora'])->name('hacerBitacoraShow');
+Route::post('dashboard/hacerBitacoraCreate', [App\Http\Controllers\BitacoraController::class, 'hacerBitacoraCreate'])->name('hacerBitacoraCreate');
+
+Route::get('dashboard/verBitacora', [App\Http\Controllers\BitacoraController::class, 'verBitacora'])->name('verBitacora');
+Route::get('dashboard/verBitacora/{id}', [App\Http\Controllers\BitacoraController::class, 'verBitacora'])->name('verBitacoraShow');
+
+
+
 // quimicos
 Route::get('dashboard/quimicos', [App\Http\Controllers\BitacoraController::class, 'quimicos'])->name('quimicos');
 Route::get('dashboard/quimicos/{id}', [App\Http\Controllers\BitacoraController::class, 'quimicos'])->name('quimicosShow');
