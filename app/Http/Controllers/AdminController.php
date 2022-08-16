@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Planta;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -58,5 +59,46 @@ class AdminController extends Controller
         $user->save();
 
         return redirect('/dashboard/usuarios');
+    }
+
+    // muestra la vista para crear usuarios
+    public function miPerfil(Request $request){
+        
+        $user = auth()->user();
+        return view('dashboard.perfil', [
+            'user' => $user,
+        ]);
+    }
+
+    // actualizar un usuario
+    public function usuariosUpdate(Request $request){
+        $validData = $request->validate([
+            'role' => 'nullable|integer',
+            'tipo_documento' => 'required|string',
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'password' => 'nullable|string|min:8|confirmed',
+            'telefono' => 'required|string|size:10|unique:users,telefono,'.auth()->user()->idusuario.',idusuario',
+        ]);
+        $user = auth()->user();
+        $user->tipo_documento = $validData['tipo_documento'];
+        $user->nombre = $validData['nombre'];
+        $user->apellido = $validData['apellido'];
+        $user->telefono = $validData['telefono'];
+        
+        if(!is_null($validData['password']) && $validData['password'] != ''){
+            $user->password = Hash::make($validData['password']);
+        }
+        $user->save();
+
+        return redirect('/dashboard/miperfil');
+    }
+
+    //adopciones
+    public function adopciones(Request $request){
+        $plantas = Planta::where('idusuario', '<>', null)->get();
+        return view('dashboard.adopciones', [
+            'plantas' => $plantas,
+        ]);
     }
 }

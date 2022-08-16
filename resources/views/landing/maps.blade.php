@@ -38,34 +38,15 @@
             mapTypeId: 'satellite'
         });
         // marcadores
-        var marker = new google.maps.Marker(
-            {
-                position: {lat:  5.210657, lng: -74.900989},
-                map: map,
-                title: 'Juan'
-            }
-        );
-        var marker = new google.maps.Marker(
-            {
-                position: {lat:  5.210506, lng: -74.9052538},
-                map: map,
-                title: 'Leidi'
-            }
-        );
-        var marker = new google.maps.Marker(
-            {
-                position: {lat:  5.21043, lng: -74.9038915},
-                map: map,
-                title: 'Yency'
-            }
-        );
-        var marker = new google.maps.Marker(
-            {
-                position: {lat:  5.211252, lng: -74.9021845},
-                map: map,
-                title: 'Rodri'
-            },
-        );
+        @foreach($plantas as $key => $planta)
+            var marker = new google.maps.Marker(
+                {
+                    position: {lat:  {{$planta->latitud}}, lng: {{$planta->longitud}}},
+                    map: map,
+                    title: '{{$planta->nombre}}'
+                }
+            );
+        @endforeach
     }
     
 @endsection

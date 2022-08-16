@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Planta;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,16 @@ Route::get('/', function () {
 })->name('landingHome');;
 
 Route::get('/maps', function () {
-    return view('landing/maps');
-})->name('landingMaps');;
+    //return view('landing/maps');
+    return view('landing/maps', [
+        'plantas' => Planta::all()
+    ]);
+})->name('landingMaps');
 
 
 Route::get('/adopt', function () {
     return view('landing/adopt');
-})->name('landingAdopt');;
+})->name('landingAdopt');
 
 Route::get('/test', function () {
     return ['hola' => 'hola',
@@ -55,11 +59,18 @@ Route::get('dashboard/plantas', [App\Http\Controllers\PlantasController::class, 
 Route::get('dashboard/plantas/{id}', [App\Http\Controllers\PlantasController::class, 'plantas'])->name('plantasShow');
 Route::post('dashboard/plantas/createUpdate', [App\Http\Controllers\PlantasController::class, 'plantasCreateUpdate'])->name('plantaCreateUpdate');
 
+//catalogo
+Route::get('dashboard/catalogo', [App\Http\Controllers\PlantasController::class, 'catalogo'])->name('catalogo');
+Route::post('dashboard/adoptar', [App\Http\Controllers\PlantasController::class, 'adoptar'])->name('adoptar');
+
+Route::get('dashboard/planta/{id}', [App\Http\Controllers\PlantasController::class, 'planta'])->name('planta');
+Route::get('dashboard/misplantas', [App\Http\Controllers\PlantasController::class, 'misPlantas'])->name('misplantas');
+
+
 // bitacora
 Route::get('dashboard/hacerBitacora', [App\Http\Controllers\BitacoraController::class, 'hacerBitacora'])->name('hacerBitacora');
 Route::get('dashboard/hacerBitacora/{id}', [App\Http\Controllers\BitacoraController::class, 'hacerBitacora'])->name('hacerBitacoraShow');
 Route::post('dashboard/hacerBitacoraCreate', [App\Http\Controllers\BitacoraController::class, 'hacerBitacoraCreate'])->name('hacerBitacoraCreate');
-
 Route::get('dashboard/verBitacora', [App\Http\Controllers\BitacoraController::class, 'verBitacora'])->name('verBitacora');
 Route::get('dashboard/verBitacora/{id}', [App\Http\Controllers\BitacoraController::class, 'verBitacora'])->name('verBitacoraShow');
 
@@ -78,4 +89,11 @@ Route::post('dashboard/medidas/createUpdate', [App\Http\Controllers\BitacoraCont
 // usuarios
 Route::get('dashboard/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios'])->name('usuarios');
 Route::get('dashboard/usuarios/create', [App\Http\Controllers\AdminController::class, 'usuariosCreate'])->name('usuariosCreate');
-Route::post('dashboard/medidas/save', [App\Http\Controllers\AdminController::class, 'usuariosSave'])->name('usuariosSave');
+Route::post('dashboard/usuarios/save', [App\Http\Controllers\AdminController::class, 'usuariosSave'])->name('usuariosSave');
+Route::post('dashboard/usuarios/update', [App\Http\Controllers\AdminController::class, 'usuariosUpdate'])->name('usuariosUpdate');
+
+Route::get('dashboard/miperfil', [App\Http\Controllers\AdminController::class, 'miPerfil'])->name('miPerfil');
+
+//adopciones
+Route::get('dashboard/adopciones', [App\Http\Controllers\AdminController::class, 'adopciones'])->name('adopciones');
+

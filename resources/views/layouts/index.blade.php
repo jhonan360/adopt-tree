@@ -104,13 +104,13 @@
                                         <a href="{{ url('/home') }}">Dashboard</a>
                                     @else
                                         <a href="{{ route('login') }}">Log in</a>
+                                        @if (Route::has('register'))
+                                            <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu">
+                                                <a href="{{ route('register') }}">Registro</a>
+                                            </li>
+                                        @endif
                                     @endauth
                                 </li>
-                                @if (Route::has('register'))
-                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu">
-                                        <a href="{{ route('register') }}">Registro</a>
-                                    </li>
-                                @endif
                             </ul>
                         </div>
                     </div>
@@ -127,16 +127,16 @@
                                         <a href="{{ url('/home') }}" class="{{ url('/home') }}">Home</a>
                                     @else
                                         <a href="{{ route('login') }}" class="{{ route('login') }}">Log in</a>
+                                        @if (Route::has('register'))
+                                            <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu">
+                                                <a href="{{ route('register') }}" class="{{ route('register') }}">Registro</a>
+                                            </li>
+                                        @endif
                                     @endauth
                                     {{-- <a href="blog-full-with-right-sidebar.html" class="sf-with-ul-pre">
                                     Login
                                     </a> --}}
                                 </li>
-                                @if (Route::has('register'))
-                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu">
-                                        <a href="{{ route('register') }}" class="{{ route('register') }}">Register</a>
-                                    </li>
-                                @endif
                             </ul>
                         </nav>
                         <div class="greennature-navigation-gimmick" id="greennature-navigation-gimmick"></div>

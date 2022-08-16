@@ -164,4 +164,44 @@ class PlantasController extends Controller
 
         return redirect('/dashboard/plantas');
     }
+
+    public function catalogo(Request $request){
+        $plantas = Planta::where('idusuario', null)->get();
+        return view('dashboard.catalogo', [
+            'plantas' => $plantas,
+        ]);
+    }
+
+    public function adoptar(Request $request){
+        
+        $id = $request->all()['idplantas'] ?? null;
+        $planta = Planta::findOrFail($id);
+        $planta->idusuario = auth()->user()->idusuario;
+        $planta->nombre = $request->all()['nombre'];
+        $planta->mensaje = $request->all()['mensaje'];
+        $planta->fecha_adopcion = Carbon::now();
+
+        $planta->save();
+
+        return redirect('/dashboard/planta/'.$id);
+    }
+
+    public function planta(Request $request, $id){
+        $planta = Planta::findOrFail($id);
+        if(auth()->user()->hasRole('administrador') || auth()->user()->hasRole('colaborador') || $planta->idusuario == auth()->user()->idusuario){
+            return view('dashboard.planta', [
+                'planta' => $planta,
+            ]);
+        }else{
+            return redirect('/dashboard/');
+        }
+    }
+
+    public function misPlantas(Request $request){
+        $plantas = Planta::where('idusuario', auth()->user()->idusuario)->get();
+
+        return view('dashboard.misPlantas', [
+            'plantas' => $plantas,
+        ]);
+    }
 }

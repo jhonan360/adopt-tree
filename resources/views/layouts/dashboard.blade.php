@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.min.css')}}">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
 
 </head>
@@ -143,7 +143,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="productos.php">
+                    <a class="nav-link" href="{{route('adopciones')}}">
                         <span>Ver Adopciones</span>
                     </a>
                 </li>
@@ -153,22 +153,43 @@
 
                 <!-- Heading -->
                 <div class="sidebar-heading">
-                    Mi espacio
+                    Catálogo
                 </div>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link" href="clientes.php">
+                    <a class="nav-link" href="{{route('catalogo')}}">
+                        <span>Ver Catálogo</span>
+                    </a>
+                </li>
+                
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Mis Arboles
+                </div>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('misplantas')}}">
                         <span>Ver mis arboles</span>
                     </a>
                 </li>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link" href="clientes.php">
-                        <span>Ver catálogo</span>
-                    </a>
-                </li>
             @endif
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Perfil
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('miPerfil')}}">
+                    
+                    <span>Mi perfil</span></a>
+            </li>
 
             <!-- <li class="nav-item">
                 <a class="nav-link" href="servicios.php">
